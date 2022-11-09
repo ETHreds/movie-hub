@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Bebas Neue, sans-serif;
+  background: #19181F;
+  /* lite mode #E5E5E5 */
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 40px;
+  letter-spacing: 5px;
+  color: red;
+}
+
+/* Loader */
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.loader img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Movie List Container */
+.movie-list-container{ 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 0 40px;
+  justify-content: center;
+  align-items: center;
+
+}
+a{
+  max-width: 220px;
+  max-height: 300px;
+  outline:none;
+  color: white;
+  font-size: 1rem;
+  text-decoration:  none;
+  display: block;
+  position: relative;
+}
+
+a img{
+  display: block;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.text_container{
+  color: chartreuse;
+  position:absolute;
+  background-color: rgba(202, 197, 197,0.3);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity ease-out 250ms;
+  
+}
+.text_container:hover{
+  opacity: 1;
+}
+.movie_title{
+
+  width: 75%;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  text-shadow: 4px -2px 1px rgba(139,33,197,0.37);
+  letter-spacing: 1px;
+
+}
+
+.movie_rating{
+  font-size: 20px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 3px;
+  color: red;
+  box-sizing: border-box;
+
+}
+.high_rating{
+  color: gold;
+}
+.moderate_rating{
+ color: rgb(10, 228, 10);
+}
+
+/* Movie description */
