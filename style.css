@@ -113,3 +113,12 @@ a img{
 }
 
 /* Movie description */
+
+
+/* Mobile site */
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
