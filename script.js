@@ -1,17 +1,26 @@
 const movieListContainer = document.getElementById('movie-list-container');
 const moviePoster = document.getElementById('movie-poster');
 const loader = document.getElementById('loader');
-// let ready = false;
-// let imagesLoaded = 0;
-// let totalImages = 0;
+
+let ready = false;
+let imagesLoaded = 0;
+let totalImages = 0;
 let moviesArray = [];
 
 // Movie API
 const apiUrl = 'https://yts.mx/api/v2/list_movies.json?quality=3D';
 
+function imageLoaded(){
+  imagesLoaded++;
+  if (imagesLoaded === totalImages){
+    ready = true;
+
+  }
+}
 // Create elements forlinks and add to DOM
 function displayPosters() {
-
+  imagesLoaded = 0;
+  totalImages = moviesArray.length;
   moviesArray.forEach( movie => {
     // create anchor element to link  description page
     const item = document.createElement('a');
@@ -44,6 +53,9 @@ function displayPosters() {
       movieRating.setAttribute('class', 'movie_rating moderate_rating'); 
     }
 
+
+    // Load event
+    img.addEventListener('load',imageLoaded())
     // Put image inside <a> the both to DOM
 
     cardText.appendChild(movieTitle);
@@ -77,6 +89,13 @@ async function getMovies() {
   }
   
 }
-
+// Scroll 
+window.addEventListener('scroll',()=>{
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 && ready){
+    ready = false;
+    getMovies();
+   
+  }
+});
 
 getMovies();
